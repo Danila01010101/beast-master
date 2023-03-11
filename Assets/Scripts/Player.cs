@@ -1,19 +1,21 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _healthPoints = 10;
 
-    public Health Health { get; private set; }
+    private Animator _animator;
 
-    private void Awake()
-    {
-        Health = new Health(_healthPoints);
-    }
+    public Health Health { get; private set; }
 
     public void TakeDamage(float damage)
     {
         Health.TakeDamage(damage);
+    }
+
+    public void Initialize(CharacterData data)
+    {
+        Health = new Health(data.StartHealth);
+        _animator = Instantiate(data.CharacterAnimator, transform);
     }
 }

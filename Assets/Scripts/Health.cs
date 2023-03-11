@@ -1,11 +1,15 @@
 public class Health
 {
+    private float _maxhealth;
+
     public bool IsAlive => Value > 0;
+
     public float Value { get; private set; }
 
-    public Health(float healthPoint)
+    public Health(float maxHealth)
     {
-        Value = healthPoint;
+        _maxhealth = maxHealth;
+        Value = _maxhealth;
     }
 
     public void TakeDamage(float damage)
