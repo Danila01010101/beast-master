@@ -1,21 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class CharacterButton : MonoBehaviour
+namespace BeastMaster
 {
-	[SerializeField] private CharacterData _characterData;
-
-	public CharacterData CharacterData => _characterData;
-	public Button Button { get; private set; }
-
-    private void Awake()
+    [RequireComponent(typeof(Button))]
+    public class CharacterButton : MonoBehaviour
     {
-        Button = GetComponent<Button>();
-    }
+        [SerializeField] private CharacterData _characterData;
 
-    public Button GetButton()
-    {
-        return GetComponent<Button>();
+        public CharacterData CharacterData => _characterData;
+        public Button Button { get; private set; }
+
+        private void Awake()
+        {
+            Button = GetComponent<Button>();
+        }
+
+        public Button GetButton()
+        {
+            return GetComponent<Button>();
+        }
     }
 }

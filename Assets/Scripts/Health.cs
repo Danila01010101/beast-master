@@ -1,22 +1,35 @@
-public class Health
+
+using System;
+
+namespace BeastMaster
 {
-    private float _maxhealth;
-
-    public bool IsAlive => Value > 0;
-
-    public float Value { get; private set; }
-
-    public Health(float maxHealth)
+    public class Health
     {
-        _maxhealth = maxHealth;
-        Value = _maxhealth;
-    }
+        private float _maxhealth;
 
-    public void TakeDamage(float damage)
-    {
-        if (IsAlive)
+        public bool IsAlive => Value > 0;
+
+        public float Value { get; private set; }
+
+        public Action Death;
+
+        public Health(float maxHealth)
         {
-            Value -= damage;
+            _maxhealth = maxHealth;
+            Value = _maxhealth;
+        }
+
+        public void TakeDamage(float damage)
+        {
+            if (IsAlive)
+            {
+                Value -= damage;
+                if (Value <= 0)
+                {
+                    Value = 0;
+                    Death?.Invoke();
+                }
+            }
         }
     }
 }

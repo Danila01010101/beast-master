@@ -16,3 +16,5 @@ MonoBehaviour:
   StartHealth: 100
   StartDamagePercentBonus: 0
   StartArmor: 0
+  MaxMonstersAmount: 4
+  StartMonster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}

@@ -1,32 +1,34 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class StartMenu : MonoBehaviour
+namespace BeastMaster
 {
-    [Header("Windows")]
-    [SerializeField] private CharacterSelectionWindow _selectionWindow;
-    [SerializeField] private SettingsWindow _settingsWindow;
-    [SerializeField] private GameObject _startScreen;
-    [SerializeField] private GameObject _menuWindow;
-
-    private GameObject _opennedWindow;
-
-    private void Start()
+    public class StartMenu : MonoBehaviour
     {
-        _opennedWindow = _startScreen;
-    }
+        [Header("Windows")]
+        [SerializeField] private CharacterSelectionWindow _selectionWindow;
+        [SerializeField] private SettingsWindow _settingsWindow;
+        [SerializeField] private GameObject _startScreen;
+        [SerializeField] private GameObject _menuWindow;
 
-    public void OpenWindow(GameObject window)
-    {
-        _opennedWindow.SetActive(false);
-        window.SetActive(true);
-        _opennedWindow = window;
-    }
+        private GameObject _opennedWindow;
 
-    public void CloseMenu()
-    {
-        _opennedWindow.SetActive(false);
-        OpenWindow(_startScreen);
-        _menuWindow.SetActive(false);
+        private void Start()
+        {
+            _opennedWindow = _startScreen;
+        }
+
+        public void OpenWindow(GameObject window)
+        {
+            _opennedWindow.SetActive(false);
+            window.SetActive(true);
+            _opennedWindow = window;
+        }
+
+        public void CloseMenu()
+        {
+            _opennedWindow.SetActive(false);
+            OpenWindow(_startScreen);
+            _menuWindow.SetActive(false);
+        }
     }
 }

@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class PlayerMovement : Movement
+namespace BeastMaster
 {
-    private Vector2 _moveDirection;
-
-    private void Update()
+    public class PlayerMovement : Movement
     {
-        GetInput();
-    }
+        private Vector2 _moveDirection;
 
-    private void FixedUpdate()
-    {
-        Move(_moveDirection);
-    }
+        private void Update()
+        {
+            GetInput();
+        }
 
-    private void GetInput()
-    {
-        float xDirection = Input.GetAxisRaw("Horizontal");
-        float yDirection = Input.GetAxisRaw("Vertical");
+        private void FixedUpdate()
+        {
+            Move(_moveDirection);
+        }
 
-        _moveDirection = new Vector2(xDirection, yDirection);
+        private void GetInput()
+        {
+            float xDirection = Input.GetAxisRaw("Horizontal");
+            float yDirection = Input.GetAxisRaw("Vertical");
+
+            _moveDirection = new Vector2(xDirection, yDirection);
+        }
     }
 }

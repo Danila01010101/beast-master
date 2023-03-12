@@ -1,32 +1,40 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Movement : MonoBehaviour
+namespace BeastMaster
 {
-    [SerializeField] private float _speed;
-
-    private Rigidbody2D _rigidbody;
-
-    protected const float _moveLimiter = 0.7f;
-
-    private void Start()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class Movement : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.gravityScale = 0;
-    }
+        [SerializeField] private float _speed;
 
-    public void Move(Vector2 moveDirection)
-    {
-        if (moveDirection.x != 0 && moveDirection.y != 0)
+        private Rigidbody2D _rigidbody;
+
+        protected const float _moveLimiter = 0.7f;
+
+        private void Start()
         {
-            moveDirection *= _moveLimiter;
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody.gravityScale = 0;
         }
 
-        _rigidbody.velocity = moveDirection.normalized * _speed * Time.fixedDeltaTime;
-    }
+        public void Move(Vector2 moveDirection)
+        {
+            if (moveDirection.x != 0 && moveDirection.y != 0)
+            {
+                moveDirection *= _moveLimiter;
+            }
 
-    public void Push(Vector2 force)
-    {
-        _rigidbody.AddForce(force, ForceMode2D.Impulse);
+            _rigidbody.velocity = moveDirection.normalized * _speed * Time.fixedDeltaTime;
+        }
+
+        public void Push(Vector2 force)
+        {
+            _rigidbody.AddForce(force, ForceMode2D.Impulse);
+        }
+
+        public void Initialize(MonsterData data)
+        {
+            _speed = data.Speed;
+        }
     }
 }
