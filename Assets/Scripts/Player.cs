@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace BeastMaster
@@ -10,6 +11,8 @@ namespace BeastMaster
 
         public Health Health { get; private set; }
 
+        public static Action CharacterSpawned;
+
         public void TakeDamage(float damage)
         {
             Health.TakeDamage(damage);
@@ -21,6 +24,7 @@ namespace BeastMaster
             _animator = Instantiate(data.CharacterAnimator, transform);
             _monsters = GetComponent<PlayerMonsters>();
             _monsters.Initialize(data);
+            CharacterSpawned?.Invoke();
         }
     }
 }

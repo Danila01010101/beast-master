@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7f79125e8f13f47ad30f0430a27181, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  MapSize: 10
+  Parameters:
+  - StartDelay: 2
+    SpawnInterval: 0.3
+    Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}

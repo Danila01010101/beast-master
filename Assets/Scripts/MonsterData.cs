@@ -10,5 +10,8 @@ namespace BeastMaster
         public int StartHealth;
         public float Speed;
         public float Damage;
+        [Header("Audio")]
+        public AudioClip DeathSound;
+        public AudioClip HitSound;
     }
 }
