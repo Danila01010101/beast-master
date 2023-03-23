@@ -11,6 +11,7 @@ namespace BeastMaster
 
         public float Value { get; private set; }
 
+        public Action DamageTaken;
         public Action Death;
 
         public Health(float maxHealth)
@@ -24,6 +25,7 @@ namespace BeastMaster
             if (IsAlive)
             {
                 Value -= damage;
+                DamageTaken?.Invoke();
                 if (Value <= 0)
                 {
                     Value = 0;

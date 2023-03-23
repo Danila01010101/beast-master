@@ -31,6 +31,7 @@ namespace BeastMaster
             _movement = GetComponent<Movement>();
             _targetDetector = GetComponent<TargetDetector>();
             _damager = GetComponent<Damager>();
+            _audioPlayer = GetComponent<MonsterAudioPlayer>();
             _health = new Health(_data.StartHealth);
             _movement.Initialize(_data);
             _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction);
@@ -62,14 +63,28 @@ namespace BeastMaster
             }
         }
 
+        private void PlayDeathSound()
+        {
+            _audioPlayer.PlaySound(MonsterAudioPlayer.Sound.Death);
+        }
+
+        private void PlayHitSound()
+        {
+            _audioPlayer.PlaySound(MonsterAudioPlayer.Sound.Hit);
+        }
+
         private void OnEnable()
         {
             _health.Death += Die;
+            _health.Death += PlayDeathSound;
+            _health.DamageTaken += PlayHitSound;
         }
 
         private void OnDisable()
         {
             _health.Death -= Die;
+            _health.Death -= PlayDeathSound;
+            _health.DamageTaken -= PlayHitSound;
         }
     }
 }

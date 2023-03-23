@@ -11,7 +11,7 @@ namespace BeastMaster
         private float _lastTimeDamaged;
         private bool _danDamage => _lastTimeDamaged + _damageInterval < Time.time;
 
-        private const float _damageInterval = 0.02f;
+        private const float _damageInterval = 0.2f;
 
         public void Initialize(int damage, Vector2 size, CapsuleDirection2D capsuleDirection)
         {
