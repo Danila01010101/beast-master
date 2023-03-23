@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapSize: 10
   Parameters:
-  - StartDelay: 2
-    SpawnInterval: 0.3
+  - StartDelay: 20
+    SpawnInterval: 5
     Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}

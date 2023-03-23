@@ -27,6 +27,11 @@ namespace BeastMaster
             _rigidbody.velocity = moveDirection.normalized * _speed * Time.fixedDeltaTime;
         }
 
+        public void Stop()
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+
         public void Push(Vector2 force)
         {
             _rigidbody.AddForce(force, ForceMode2D.Impulse);

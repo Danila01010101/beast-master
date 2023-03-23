@@ -7,19 +7,21 @@ namespace BeastMaster
         [SerializeField] private float _detectRadius;
 
         private LayerMask _targetLayerMask;
-        private Transform _transform;
-        private Transform _target;
+        private Transform _protectTarget;
+        private Transform _attackTarget;
         private bool _isLookingForTarget = true;
 
-        public Transform Target => _target;
+        public Transform Target => _attackTarget;
+        public Transform ProtectTarget => _protectTarget;
 
         private void Awake()
         {
-            _transform = transform;
+            _protectTarget = transform;
         }
 
-        public void SetTargetLayer(LayerMask targetLayerMask, string gameObjectLayerName = null)
+        public void SetTargetLayer(LayerMask targetLayerMask, Transform targetToProtect, string gameObjectLayerName = null)
         {
+            _protectTarget = targetToProtect;
             _targetLayerMask = targetLayerMask;
             if (gameObjectLayerName != null)
             {
@@ -38,17 +40,17 @@ namespace BeastMaster
 
         private void CheckTarget()
         {
-            var detectedObject = Physics2D.OverlapCircle(_transform.position, _detectRadius, _targetLayerMask);
+            var detectedObject = Physics2D.OverlapCircle(_protectTarget.position, _detectRadius, _targetLayerMask);
             if (detectedObject != null)
             {
-                _target = detectedObject.transform;
+                _attackTarget = detectedObject.transform;
                 _isLookingForTarget = false;
             }
         }
 
         private void ResetTarget()
         {
-            _target = null;
+            _attackTarget = null;
             _isLookingForTarget = true;
         }
     }

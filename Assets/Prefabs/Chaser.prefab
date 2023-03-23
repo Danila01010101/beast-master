@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8741143586930754122}
   - component: {fileID: 2425978894902227568}
   - component: {fileID: 3482472443646530760}
+  - component: {fileID: 8415409595998194888}
   m_Layer: 8
   m_Name: Chaser
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  _playerFollowRadius: 2
 --- !u!114 &2487918728635943491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +221,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &8415409595998194888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487918728635943502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d66c6ac452e84eb8767423e08c1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8448067575822089899
 PrefabInstance:
   m_ObjectHideFlags: 0

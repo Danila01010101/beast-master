@@ -13,12 +13,15 @@ namespace BeastMaster
         [SerializeField] private LayerMask _playerLayerMask;
         [SerializeField] private LayerMask _enemyLayerMask;
 
+        [SerializeField] protected float _playerFollowRadius;
+
         private MonsterAudioPlayer _audioPlayer;
         private Damager _damager;
         private CapsuleCollider2D _capsuleCollider2D;
         private const string _friendlyMonsterLayerName = "FriendlyMonster";
         private const string _enemyMonsterLayerName = "EnemyMonster";
 
+        protected bool _isFriendlyToPlayer = false;
         protected Health _health;
 		protected Movement _movement;
         protected TargetDetector _targetDetector;
@@ -36,7 +39,8 @@ namespace BeastMaster
             _movement.Initialize(_data);
             _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction);
             _audioPlayer.Initialize(_data.DeathSound, _data.HitSound);
-            SetPlayerFriendly(false);
+            _targetDetector.SetTargetLayer(_playerLayerMask, transform, _enemyMonsterLayerName);
+            _damager.SetDamageLayer(_playerLayerMask);
         }
 
         public void TakeDamage(int damage)
@@ -49,18 +53,11 @@ namespace BeastMaster
             Destroy(gameObject);
         }
 
-        public void SetPlayerFriendly(bool isPlayerFriendly)
+        public void SetPlayerFriendly(Transform player)
         {
-            if (isPlayerFriendly)
-            {
-                _targetDetector.SetTargetLayer(_enemyLayerMask, _friendlyMonsterLayerName);
-                _damager.SetDamageLayer(_enemyLayerMask);
-            }
-            else
-            {
-                _targetDetector.SetTargetLayer(_playerLayerMask, _enemyMonsterLayerName);
-                _damager.SetDamageLayer(_playerLayerMask);
-            }
+            _targetDetector.SetTargetLayer(_enemyLayerMask, player, _friendlyMonsterLayerName);
+            _damager.SetDamageLayer(_enemyLayerMask);
+            _isFriendlyToPlayer = true;
         }
 
         private void PlayDeathSound()

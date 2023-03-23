@@ -23,7 +23,7 @@ namespace BeastMaster
                 if (data != null)
                 {
                     var spawnedMonster = Instantiate(data.Prefab);
-                    spawnedMonster.SetPlayerFriendly(true);
+                    spawnedMonster.SetPlayerFriendly(transform);
                     spawnedMonster.gameObject.name = "Friendly" + spawnedMonster.gameObject.name;
                 }
             }

@@ -7,6 +7,19 @@ namespace BeastMaster
     {
         public void FixedUpdate()
         {
+            if (_isFriendlyToPlayer && TargetDetector.Target == null)
+            {
+                if (Vector2.Distance(TargetDetector.ProtectTarget.position, transform.position) > _playerFollowRadius)
+                {
+                    _movement.Move(TargetDetector.ProtectTarget.position - transform.position);
+                }
+                else
+                {
+                    _movement.Stop();
+                }
+                return;
+            }
+
             if (_targetDetector.Target != null)
             {
                 Vector2 direction = _targetDetector.Target.transform.position - transform.position;

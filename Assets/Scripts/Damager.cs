@@ -9,7 +9,7 @@ namespace BeastMaster
         private CapsuleDirection2D _direction;
         private int _damage;
         private float _lastTimeDamaged;
-        private bool _danDamage => _lastTimeDamaged + _damageInterval < Time.time;
+        private bool _canDamage => _lastTimeDamaged + _damageInterval < Time.time;
 
         private const float _damageInterval = 0.2f;
 
@@ -27,7 +27,7 @@ namespace BeastMaster
 
         private void FixedUpdate()
         {
-            if (_danDamage)
+            if (_canDamage)
             {
                 var detectedObjects = Physics2D.OverlapCapsuleAll(transform.position, _size, _direction, 0, _damageLayer);
                 foreach (var detectedObject in detectedObjects)
