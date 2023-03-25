@@ -39,7 +39,7 @@ namespace BeastMaster
             _audioPlayer = GetComponent<MonsterAudioPlayer>();
             _health = new Health(_data.StartHealth);
             _movement.Initialize(_data);
-            _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction);
+            _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction, _capsuleCollider2D.offset);
             _audioPlayer.Initialize(_data.DeathSound, _data.HitSound);
             _targetDetector.SetTargetLayer(_playerLayerMask, transform, _enemyMonsterLayerName);
             _damager.SetDamageLayer(_playerLayerMask);

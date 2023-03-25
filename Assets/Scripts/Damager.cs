@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace BeastMaster
@@ -6,6 +7,7 @@ namespace BeastMaster
 	{
         private LayerMask _damageLayer;
         private Vector2 _size;
+        private Vector3 _offset;
         private CapsuleDirection2D _direction;
         private int _damage;
         private float _lastTimeDamaged;
@@ -13,10 +15,11 @@ namespace BeastMaster
 
         private const float _damageInterval = 0.2f;
 
-        public void Initialize(int damage, Vector2 size, CapsuleDirection2D capsuleDirection)
+        public void Initialize(int damage, Vector2 size, CapsuleDirection2D capsuleDirection, Vector3 offset)
         {
             _damage = damage;
             _size = size;
+            _offset = offset;
             _direction = capsuleDirection;
         }
 
@@ -29,7 +32,7 @@ namespace BeastMaster
         {
             if (_canDamage)
             {
-                var detectedObjects = Physics2D.OverlapCapsuleAll(transform.position, _size, _direction, 0, _damageLayer);
+                var detectedObjects = Physics2D.OverlapCapsuleAll(_offset + transform.position, _size, _direction, 0, _damageLayer);
                 foreach (var detectedObject in detectedObjects)
                 {
                     IDamagable damagable;
