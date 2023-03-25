@@ -12,6 +12,8 @@ namespace BeastMaster
 		[SerializeField] private MonsterData _data;
         [SerializeField] private LayerMask _playerLayerMask;
         [SerializeField] private LayerMask _enemyLayerMask;
+        [SerializeField] private bool _needHealthBar = false;
+        [SerializeField] private Vector3 _healthBarOffset;
 
         [SerializeField] protected float _playerFollowRadius;
 
@@ -57,6 +59,7 @@ namespace BeastMaster
         {
             _targetDetector.SetTargetLayer(_enemyLayerMask, player, _friendlyMonsterLayerName);
             _damager.SetDamageLayer(_enemyLayerMask);
+            _health.AddHealthBar(transform, _healthBarOffset);
             _isFriendlyToPlayer = true;
         }
 
@@ -74,14 +77,14 @@ namespace BeastMaster
         {
             _health.Death += Die;
             _health.Death += PlayDeathSound;
-            _health.DamageTaken += PlayHitSound;
+            _health.HealthChanged += PlayHitSound;
         }
 
         private void OnDisable()
         {
             _health.Death -= Die;
             _health.Death -= PlayDeathSound;
-            _health.DamageTaken -= PlayHitSound;
+            _health.HealthChanged -= PlayHitSound;
         }
     }
 }

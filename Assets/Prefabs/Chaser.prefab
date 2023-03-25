@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 2487918728635943503}
   - component: {fileID: 2487918728635943491}
   - component: {fileID: 2487918728635943494}
-  - component: {fileID: 3485641746087471923}
-  - component: {fileID: 8741143586930754122}
   - component: {fileID: 2425978894902227568}
   - component: {fileID: 3482472443646530760}
   - component: {fileID: 8415409595998194888}
@@ -134,6 +132,8 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  _needHealthBar: 0
+  _healthBarOffset: {x: 0, y: 1.6, z: 0}
   _playerFollowRadius: 2
 --- !u!114 &2487918728635943491
 MonoBehaviour:
@@ -161,38 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectRadius: 5
---- !u!58 &3485641746087471923
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487918728635943502}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.029341578, y: 0.39820844}
-  serializedVersion: 2
-  m_Radius: 0.5836099
---- !u!58 &8741143586930754122
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487918728635943502}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.029341578, y: 0.3982085}
-  serializedVersion: 2
-  m_Radius: 0.6928166
 --- !u!114 &2425978894902227568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,8 +186,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0.0126007795, y: 0.3276201}
+  m_Size: {x: 1.3484514, y: 1.48723}
   m_Direction: 0
 --- !u!114 &8415409595998194888
 MonoBehaviour:
