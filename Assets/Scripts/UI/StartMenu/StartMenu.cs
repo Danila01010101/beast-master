@@ -30,5 +30,20 @@ namespace BeastMaster
             OpenWindow(_startScreen);
             _menuWindow.SetActive(false);
         }
+
+        private void CloseMenuOnGameStart(LevelData data)
+        {
+            CloseMenu();
+        }
+
+        private void OnEnable()
+        {
+            LevelStarter.LevelStarted += CloseMenuOnGameStart;
+        }
+
+        private void OnDisable()
+        {
+            LevelStarter.LevelStarted -= CloseMenuOnGameStart;
+        }
     }
 }

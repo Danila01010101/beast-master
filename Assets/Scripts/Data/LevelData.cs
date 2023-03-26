@@ -7,6 +7,7 @@ namespace BeastMaster
     public class LevelData : ScriptableObject
 	{
         public float MapSize = 5;
+        public float LevelLenght = 45;
 
         public List<MonsterSpawnParameters> Parameters;
 	}

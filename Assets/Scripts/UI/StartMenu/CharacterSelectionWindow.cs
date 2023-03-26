@@ -17,7 +17,6 @@ namespace BeastMaster
         private void Start()
         {
             _startButton.gameObject.SetActive(false);
-            _startButton.onClick.AddListener(StartGame);
 
             foreach (CharacterButton button in _characterButtons)
             {
@@ -32,10 +31,20 @@ namespace BeastMaster
                 _startButton.gameObject.SetActive(true);
         }
 
-        private void StartGame()
+        private void SpawnCharacter(LevelData data)
         {
             Player player = Instantiate(_characterPrefab, _startPosition.position, _characterPrefab.transform.rotation);
             player.Initialize(_characterData);
+        }
+
+        private void OnEnable()
+        {
+            LevelStarter.LevelStarted += SpawnCharacter;
+        }
+
+        private void OnDisable()
+        {
+            LevelStarter.LevelStarted -= SpawnCharacter;
         }
     }
 }

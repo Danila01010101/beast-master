@@ -1,40 +1,55 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BeastMaster
 {
     public class EnemySpawner : MonoBehaviour
 	{
-		[SerializeField] private LevelData _levelData;
+        [SerializeField] private List<Monster> _spawnedMonsters;
 
-        private void StartSpawn()
+		private void StartSpawningEnemies(LevelData levelData)
         {
-            foreach (MonsterSpawnParameters parameters in _levelData.Parameters)
+            foreach (MonsterSpawnParameters parameters in levelData.Parameters)
             {
-                this.Invoke(() => StartCoroutine(SpawnEnemies(parameters.Monster.Prefab.gameObject, parameters.SpawnInterval)), parameters.StartDelay);
+                this.Invoke(() => StartCoroutine(SpawnEnemies(parameters.Monster.Prefab, parameters.SpawnInterval, levelData.MapSize)), parameters.StartDelay);
             }
         }
 
-        private IEnumerator SpawnEnemies(GameObject enemyPrefab, float interval)
+        private IEnumerator SpawnEnemies(Monster enemyPrefab, float interval, float mapSize)
         {
             while (true)
             {
-                float xPosition = Random.Range(-_levelData.MapSize, _levelData.MapSize);
-                float yPosition = Random.Range(-_levelData.MapSize, _levelData.MapSize);
+                float xPosition = Random.Range(-mapSize, mapSize);
+                float yPosition = Random.Range(-mapSize, mapSize);
                 Vector2 spawnPosition = new Vector2(xPosition, yPosition);
-                Instantiate(enemyPrefab, spawnPosition, enemyPrefab.transform.rotation);
+                _spawnedMonsters.Add(Instantiate(enemyPrefab, spawnPosition, enemyPrefab.transform.rotation));
                 yield return new WaitForSeconds(interval);
+            }
+        }
+
+        private void StopSpawningEnemies()
+        {
+            StopAllCoroutines();
+            foreach (Monster monster in _spawnedMonsters)
+            {
+                if (monster != null)
+                {
+                    monster.Remove();
+                }
             }
         }
 
         private void OnEnable()
         {
-            Player.CharacterSpawned += StartSpawn;
+            LevelStarter.LevelStarted += StartSpawningEnemies;
+            LevelStarter.LevelEnded += StopSpawningEnemies;
         }
 
         private void OnDisable()
         {
-            Player.CharacterSpawned -= StartSpawn;
+            LevelStarter.LevelStarted -= StartSpawningEnemies;
+            LevelStarter.LevelEnded -= StopSpawningEnemies;
         }
     }
 }

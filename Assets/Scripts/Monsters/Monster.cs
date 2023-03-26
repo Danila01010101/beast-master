@@ -73,6 +73,16 @@ namespace BeastMaster
             _audioPlayer.PlaySound(MonsterAudioPlayer.Sound.Hit);
         }
 
+        public void Remove()
+        {
+            _capsuleCollider2D.enabled = false;
+            _movement.enabled = false;
+            _targetDetector.enabled = false;
+            _damager.enabled = false;
+            _audioPlayer.enabled = false;
+            Destroy(gameObject);
+        }
+
         private void OnEnable()
         {
             _health.Death += Die;
