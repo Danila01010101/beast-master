@@ -58,5 +58,10 @@ namespace BeastMaster
                 }
             }
         }
+
+        public void UpgradeHealth(int healthAmount)
+        {
+            _maxHealth += healthAmount;
+        }
     }
 }

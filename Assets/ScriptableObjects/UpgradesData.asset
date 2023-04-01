@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bb61c70b29b8647844e1a84d10cb9e, type: 3}
+  m_Name: UpgradesData
+  m_EditorClassIdentifier: 
+  HealthUpgrades:
+    Common:
+      Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
+      Value: 2
+    Rare:
+      Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
+      Value: 4
+    VeryRare:
+      Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
+      Value: 6
+    Epic:
+      Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
+      Value: 0
+    Legendary:
+      Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
+      Value: 15
+  DamageMultiplierUpgrades:
+    Common:
+      Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
+      Value: 3
+    Rare:
+      Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
+      Value: 8
+    VeryRare:
+      Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
+      Value: 10
+    Epic:
+      Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
+      Value: 0
+    Legendary:
+      Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
+      Value: 20
+  AttackSpeedUpgrades:
+    Common:
+      Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
+      Value: 2
+    Rare:
+      Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
+      Value: 5
+    VeryRare:
+      Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
+      Value: 10
+    Epic:
+      Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
+      Value: 0
+    Legendary:
+      Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
+      Value: 20

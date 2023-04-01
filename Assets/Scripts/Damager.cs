@@ -10,8 +10,9 @@ namespace BeastMaster
         private Vector3 _offset;
         private CapsuleDirection2D _direction;
         private int _damage;
+        private float _attackSpeed = 1;
         private float _lastTimeDamaged;
-        private bool _canDamage => _lastTimeDamaged + _damageInterval < Time.time;
+        private bool _canDamage => _lastTimeDamaged + (_damageInterval * _attackSpeed) < Time.time;
 
         private const float _damageInterval = 0.2f;
 
@@ -43,6 +44,16 @@ namespace BeastMaster
                     }
                 }
             }
+        }
+
+        public void UpgradeDamage(int value)
+        {
+            _damage += value;
+        }
+
+        public void UpgradeAttackSpeed(int increasePercent)
+        {
+            _attackSpeed += increasePercent / 100;
         }
     }
 }

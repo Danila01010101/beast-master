@@ -12,7 +12,6 @@ namespace BeastMaster
 		[SerializeField] private MonsterData _data;
         [SerializeField] private LayerMask _playerLayerMask;
         [SerializeField] private LayerMask _enemyLayerMask;
-        [SerializeField] private bool _needHealthBar = false;
         [SerializeField] private Vector3 _healthBarOffset;
 
         [SerializeField] protected float _playerFollowRadius;
@@ -28,15 +27,18 @@ namespace BeastMaster
 		protected Movement _movement;
         protected TargetDetector _targetDetector;
 
+
+        public Health Health { get { return _health; } }
+        public Damager Damager { get { return _damager; } }
         public TargetDetector TargetDetector { get { return _targetDetector; } }
 
         private void Awake()
         {
             _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-            _movement = GetComponent<Movement>();
-            _targetDetector = GetComponent<TargetDetector>();
-            _damager = GetComponent<Damager>();
             _audioPlayer = GetComponent<MonsterAudioPlayer>();
+            _targetDetector = GetComponent<TargetDetector>();
+            _movement = GetComponent<Movement>();
+            _damager = GetComponent<Damager>();
             _health = new Health(_data.StartHealth);
             _movement.Initialize(_data);
             _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction, _capsuleCollider2D.offset);
@@ -76,10 +78,10 @@ namespace BeastMaster
         public void Remove()
         {
             _capsuleCollider2D.enabled = false;
-            _movement.enabled = false;
             _targetDetector.enabled = false;
-            _damager.enabled = false;
             _audioPlayer.enabled = false;
+            _movement.enabled = false;
+            _damager.enabled = false;
             Destroy(gameObject);
         }
 

@@ -17,6 +17,7 @@ namespace BeastMaster
         {
             _audioGameObject = new GameObject("MonsterAudio");
             _audioGameObject.transform.SetParent(transform);
+			_audioGameObject.transform.localPosition = Vector3.zero;
 
 			_volume = DataSaver.Instance.EffectsVolume * DataSaver.Instance.MainVolume;
             _deathSound = deathSound;

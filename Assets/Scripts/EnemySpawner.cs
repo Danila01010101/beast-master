@@ -6,7 +6,7 @@ namespace BeastMaster
 {
     public class EnemySpawner : MonoBehaviour
 	{
-        [SerializeField] private List<Monster> _spawnedMonsters;
+        private List<Monster> _spawnedMonsters = new List<Monster>();
 
 		private void StartSpawningEnemies(LevelData levelData)
         {
@@ -28,7 +28,7 @@ namespace BeastMaster
             }
         }
 
-        private void StopSpawningEnemies()
+        private void RemoveEnemies()
         {
             StopAllCoroutines();
             foreach (Monster monster in _spawnedMonsters)
@@ -38,18 +38,19 @@ namespace BeastMaster
                     monster.Remove();
                 }
             }
+            _spawnedMonsters = new List<Monster>();
         }
 
         private void OnEnable()
         {
             LevelStarter.LevelStarted += StartSpawningEnemies;
-            LevelStarter.LevelEnded += StopSpawningEnemies;
+            LevelStarter.LevelEnded += RemoveEnemies;
         }
 
         private void OnDisable()
         {
             LevelStarter.LevelStarted -= StartSpawningEnemies;
-            LevelStarter.LevelEnded -= StopSpawningEnemies;
+            LevelStarter.LevelEnded -= RemoveEnemies;
         }
     }
 }
