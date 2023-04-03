@@ -5,20 +5,13 @@ using UnityEngine.UI;
 
 namespace BeastMaster
 {
-    public class SettingsWindow : MonoBehaviour
+    public class SettingsWindow : UIWindow
     {
-        [SerializeField] private Button _exitButton;
+        [SerializeField] private Button _back;
         [Header("Sliders")]
         [SerializeField] private Slider _mainVolumeSlider;
         [SerializeField] private Slider _effectsVolumeSlider;
         [SerializeField] private Slider _musicVolumeSlider;
-
-        private void Awake()
-        {
-            _mainVolumeSlider.value = DataSaver.Instance.MainVolume;
-            _effectsVolumeSlider.value = DataSaver.Instance.EffectsVolume;
-            _musicVolumeSlider.value = DataSaver.Instance.MusicVolume;
-        }
 
         public void ChangeMainVolume()
         {
@@ -35,14 +28,13 @@ namespace BeastMaster
             DataSaver.Instance.MusicVolume = _musicVolumeSlider.value;
         }
 
-        private void OnEnable()
+        public override void Initialize()
         {
-            _exitButton.onClick.AddListener(DataSaver.Instance.Save);
-        }
+            _mainVolumeSlider.value = DataSaver.Instance.MainVolume;
+            _effectsVolumeSlider.value = DataSaver.Instance.EffectsVolume;
+            _musicVolumeSlider.value = DataSaver.Instance.MusicVolume;
 
-        private void OnDisable()
-        {
-            _exitButton.onClick.RemoveListener(DataSaver.Instance.Save);
+            _back.onClick.AddListener( delegate { UIWindowManager.ShowLast(); });
         }
     }
 }

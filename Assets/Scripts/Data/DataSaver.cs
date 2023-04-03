@@ -42,10 +42,7 @@ namespace BeastMaster.Saves
                 Destroy(gameObject);
             }
             DontDestroyOnLoad(gameObject);
-        }
 
-        private void Start()
-        {
             _data = DataFileLoader.Load(FILENAME);
         }
 

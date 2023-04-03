@@ -3,21 +3,15 @@ using UnityEngine;
 
 namespace BeastMaster
 {
-    public class CharacterUpgradeWindow : MonoBehaviour
+    public class CharacterUpgradeWindow : UIWindow
 	{
 		[SerializeField] private UpgradesData _upgradesData;
 		[SerializeField] private UpgradeButton _firstUpgradeCell;
 		[SerializeField] private UpgradeButton _secondUpgradeCell;
-		[SerializeField] private GameObject _window;
+		[SerializeField] private GameObject _shopWindow;
 
-		private CharacterUpgrader _upgrader;
+		private CharacterUpgrader _upgrader => CharacterUpgrader.Instance;
 		private UpgradeButton[] _upgradeButtons;
-
-		public void Show()
-		{
-            _window.SetActive(true);
-			GenerateUpgradeCells();
-        }
 
         private void GenerateUpgradeCells()
 		{
@@ -36,7 +30,7 @@ namespace BeastMaster
 					delegate 
 					{ 
 						_upgrader.Updrade(upgradeType, upgrade.Value);
-						_window.SetActive(false);
+						UIWindowManager.ShowLast();
                     }, 
 					upgrade.Sprite);
 			}
@@ -54,19 +48,12 @@ namespace BeastMaster
             return (UpgradesData.UpgradeRarity)UnityEngine.Random.Range(0, upgradesAmount);
         }
 
-		private void SetUpgrader(CharacterUpgrader upgrader)
-		{
-            _upgrader = upgrader;
+        public override void Show()
+        {
+            base.Show();
+			GenerateUpgradeCells();
         }
 
-        private void OnEnable()
-        {
-			CharacterUpgrader.CharacterUpgraderInitialized += SetUpgrader;
-        }
-
-        private void OnDisable()
-        {
-            CharacterUpgrader.CharacterUpgraderInitialized += SetUpgrader;
-        }
+        public override void Initialize() { }
     }
 }

@@ -7,12 +7,12 @@ namespace BeastMaster
     {
         private PlayerMonsters _playerMonsters;
 
-        public static Action<CharacterUpgrader> CharacterUpgraderInitialized;
+        public static CharacterUpgrader Instance;
 
         public void Initialize(PlayerMonsters playerMonsters)
         {
             _playerMonsters = playerMonsters;
-            CharacterUpgraderInitialized?.Invoke(this);
+            Instance = this;
         }
 
         public void Updrade(UpgradesData.UpgradeType type, int value)

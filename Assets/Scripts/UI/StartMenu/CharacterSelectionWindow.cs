@@ -1,13 +1,13 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace BeastMaster
 {
-    public class CharacterSelectionWindow : MonoBehaviour
+    public class CharacterSelectionWindow : UIWindow
     {
         [SerializeField] private Button _startButton;
+        [SerializeField] private Button _backButton;
         [SerializeField] private Transform _startPosition;
         [SerializeField] private Player _characterPrefab;
         [SerializeField] private List<CharacterButton> _characterButtons;
@@ -45,6 +45,12 @@ namespace BeastMaster
         private void OnDisable()
         {
             LevelStarter.LevelStarted -= SpawnCharacter;
+        }
+
+        public override void Initialize()
+        {
+            _startButton.onClick.AddListener(delegate { UIWindowManager.Show<GameUI>(); });
+            _backButton.onClick.AddListener(delegate { UIWindowManager.ShowLast(); });
         }
     }
 }

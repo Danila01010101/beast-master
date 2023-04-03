@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,22 +9,32 @@ namespace BeastMaster
 {
     public class LevelStarter : MonoBehaviour
 	{
-		[SerializeField] private Button _startButton;
-		[SerializeField] private LevelData _levelData;
+		[SerializeField] private List<Button> _startButtons;
+		[SerializeField] private List<LevelData> _levelDatas;
 		[SerializeField] private TextMeshProUGUI _counterText;
+
+		private Queue<LevelData> _levelsStack = new Queue<LevelData>();
 
 		public static Action LevelEnded;
 		public static Action<LevelData> LevelStarted;
 
         private void Awake()
         {
-            _startButton.onClick.AddListener(StartLevel);
+			foreach (LevelData levelData in _levelDatas)
+			{
+				_levelsStack.Enqueue(levelData);
+			}
+			foreach (Button button in _startButtons)
+            {
+                button.onClick.AddListener(StartLevel);
+            }
         }
 
         public void StartLevel()
 		{
-            LevelStarted?.Invoke(_levelData);
-			StartCoroutine(LevelEndCounting(_levelData.LevelLenght));
+			LevelData currentLevel = _levelsStack.Dequeue();
+            LevelStarted?.Invoke(currentLevel);
+			StartCoroutine(LevelEndCounting(currentLevel.LevelLenght));
         }
 
 		private IEnumerator LevelEndCounting(float lenght)
