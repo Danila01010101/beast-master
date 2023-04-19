@@ -11,5 +11,6 @@ namespace BeastMaster
         public int StartArmor = 0;
         public int MaxMonstersAmount = 4;
         public MonsterData StartMonster;
+        public SkillData[] _skills;
     }
 }

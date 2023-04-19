@@ -13,7 +13,25 @@ namespace BeastMaster
         public bool IsAlive => Value > 0;
 
         public float MaxHealth => _maxHealth;
-        public float Value { get; private set; }
+        public float Value 
+        {
+            get
+            {
+                return Value;
+            }
+            private set
+            {
+                float newHealthAmount = Value + value;
+                if (newHealthAmount > _maxHealth)
+                {
+                    Value = _maxHealth;
+                }
+                else
+                {
+                    Value = newHealthAmount;
+                }
+            }
+        }
 
         public static Action<Health, Transform, Vector3> OnHealthAdded;
         public static Action<Health> OnHealthRemoved;
@@ -62,6 +80,11 @@ namespace BeastMaster
         public void UpgradeHealth(int healthAmount)
         {
             _maxHealth += healthAmount;
+        }
+
+        public void Heal(float healAmount)
+        {
+            Value += healAmount;
         }
     }
 }

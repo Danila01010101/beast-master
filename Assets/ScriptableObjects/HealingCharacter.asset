@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dd559009edf88742b6201b711c3fb29, type: 3}
-  m_Name: BaseCharacter
+  m_Name: HealingCharacter
   m_EditorClassIdentifier: 
   CharacterAnimator: {fileID: 335551144819736910, guid: 0e280cd4ce521994eb618b6731c6a2f4, type: 3}
   StartHealth: 100
@@ -18,3 +18,5 @@ MonoBehaviour:
   StartArmor: 0
   MaxMonstersAmount: 4
   StartMonster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
+  _skills:
+  - {fileID: 11400000, guid: f82e1c210dce8f1479f7fc8c1a80f714, type: 2}
