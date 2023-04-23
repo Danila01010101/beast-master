@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   MapSize: 10
-  LevelLenght: 2
+  LevelLenght: 15
   Parameters:
   - StartDelay: 2
     SpawnInterval: 4

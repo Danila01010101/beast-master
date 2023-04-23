@@ -40,6 +40,7 @@ namespace BeastMaster
             _movement = GetComponent<Movement>();
             _damager = GetComponent<Damager>();
             _health = new Health(_data.StartHealth);
+            _health.AddHealthBar(transform, _healthBarOffset);
             _movement.Initialize(_data);
             _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction, _capsuleCollider2D.offset);
             _audioPlayer.Initialize(_data.DeathSound, _data.HitSound);
@@ -52,16 +53,10 @@ namespace BeastMaster
             _health.TakeDamage(damage);
         }
 
-        private void Die()
-        {
-            Destroy(gameObject);
-        }
-
         public void SetPlayerFriendly(Transform player)
         {
             _targetDetector.SetTargetLayer(_enemyLayerMask, player, _friendlyMonsterLayerName);
             _damager.SetDamageLayer(_enemyLayerMask);
-            _health.AddHealthBar(transform, _healthBarOffset);
             _isFriendlyToPlayer = true;
         }
 
@@ -82,19 +77,20 @@ namespace BeastMaster
             _audioPlayer.enabled = false;
             _movement.enabled = false;
             _damager.enabled = false;
+            _health.TakeMortalDamage();
             Destroy(gameObject);
         }
 
         private void OnEnable()
         {
-            _health.Death += Die;
+            _health.Death += Remove;
             _health.Death += PlayDeathSound;
             _health.HealthChanged += PlayHitSound;
         }
 
         private void OnDisable()
         {
-            _health.Death -= Die;
+            _health.Death -= Remove;
             _health.Death -= PlayDeathSound;
             _health.HealthChanged -= PlayHitSound;
         }
