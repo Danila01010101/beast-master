@@ -31,7 +31,7 @@ namespace BeastMaster
                 _startButton.gameObject.SetActive(true);
         }
 
-        private void SpawnCharacter(LevelData data)
+        private void SpawnCharacter()
         {
             Player player = Instantiate(_characterPrefab, _startPosition.position, _characterPrefab.transform.rotation);
             player.Initialize(_characterData);

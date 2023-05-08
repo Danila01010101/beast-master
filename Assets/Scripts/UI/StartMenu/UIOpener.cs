@@ -4,7 +4,7 @@ namespace BeastMaster
 {
     public class UIOpener : MonoBehaviour
     {
-        private void HideOnStart(LevelData levelData)
+        private void HideOnStart()
         {
             UIWindowManager.Show<GameUI>();
         }

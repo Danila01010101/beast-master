@@ -16,7 +16,8 @@ namespace BeastMaster
 		private Queue<LevelData> _levelsStack = new Queue<LevelData>();
 
 		public static Action LevelEnded;
-		public static Action<LevelData> LevelStarted;
+		public static Action LevelStarted;
+		public static Action<LevelData> LevelDataSelected;
 
         private void Awake()
         {
@@ -33,7 +34,8 @@ namespace BeastMaster
         public void StartLevel()
 		{
 			LevelData currentLevel = _levelsStack.Dequeue();
-            LevelStarted?.Invoke(currentLevel);
+			LevelStarted?.Invoke();
+            LevelDataSelected?.Invoke(currentLevel);
 			StartCoroutine(LevelEndCounting(currentLevel.LevelLenght));
         }
 

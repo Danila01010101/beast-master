@@ -43,13 +43,13 @@ namespace BeastMaster
 
         private void OnEnable()
         {
-            LevelStarter.LevelStarted += StartSpawningEnemies;
+            LevelStarter.LevelDataSelected += StartSpawningEnemies;
             LevelStarter.LevelEnded += RemoveEnemies;
         }
 
         private void OnDisable()
         {
-            LevelStarter.LevelStarted -= StartSpawningEnemies;
+            LevelStarter.LevelDataSelected -= StartSpawningEnemies;
             LevelStarter.LevelEnded -= RemoveEnemies;
         }
     }
