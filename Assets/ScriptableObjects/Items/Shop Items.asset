@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7f79125e8f13f47ad30f0430a27181, type: 3}
-  m_Name: Level1
+  m_Script: {fileID: 11500000, guid: 61743bb18383d0949858601a34c83917, type: 3}
+  m_Name: Shop Items
   m_EditorClassIdentifier: 
-  MapSize: 10
-  LevelLenght: 3
-  Parameters:
-  - StartDelay: 2
-    SpawnInterval: 4
-    Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
+  Items:
+  - {fileID: 11400000, guid: c644ded870651d742a7a5e13d0200088, type: 2}

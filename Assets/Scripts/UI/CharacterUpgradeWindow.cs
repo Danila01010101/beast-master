@@ -27,11 +27,11 @@ namespace BeastMaster
 				var upgrade = _upgradesData.GetUpgrade(upgradeType, upgradeRarity);
 
                 button.Initialize( 
-					delegate 
-					{ 
+					delegate
+					{
 						_upgrader.Updrade(upgradeType, upgrade.Value);
 						UIWindowManager.Show<ShopWindow>();
-                    }, 
+                    },
 					upgrade.Sprite);
 			}
         }

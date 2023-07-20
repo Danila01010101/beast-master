@@ -18,11 +18,15 @@ namespace BeastMaster
             _monstersData = new MonsterData[data.MaxMonstersAmount];
             _maxMonstersAmount = data.MaxMonstersAmount;
             AddMonster(data.StartMonster);
-            SpawnMonsters();
         }
 
-        private void SpawnMonsters()
+        public void RespawnMonsters()
         {
+            foreach (Monster monster in _spawnedMonsters)
+            {
+                monster.Remove();
+            }
+            _spawnedMonsters = new List<Monster>();
             foreach (MonsterData data in _monstersData)
             {
                 if (data != null)
@@ -41,6 +45,16 @@ namespace BeastMaster
             {
                 _monstersData[_currentMonstersAmount++] = data;
             }
+        }
+
+        private void OnEnable()
+        {
+            MonsterItem.MonsterBought += AddMonster;
+        }
+
+        private void OnDisable()
+        {
+            MonsterItem.MonsterBought -= AddMonster;
         }
     }
 }

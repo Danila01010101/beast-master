@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7f79125e8f13f47ad30f0430a27181, type: 3}
-  m_Name: Level1
+  m_Script: {fileID: 11500000, guid: 29e70c2d513a76c48b0508095ea26de3, type: 3}
+  m_Name: Active Item
   m_EditorClassIdentifier: 
-  MapSize: 10
-  LevelLenght: 3
-  Parameters:
-  - StartDelay: 2
-    SpawnInterval: 4
-    Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
+  Icon: {fileID: 619223149, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
+  Name: Chaser
+  Cost: 100
+  MonsterData: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
