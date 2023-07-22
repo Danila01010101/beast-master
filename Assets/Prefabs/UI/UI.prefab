@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterSelectionWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5083973240892407524, guid: 1a055c015a7c42b4f94d47ae9c774ee9, type: 3}
+      propertyPath: _skillsPanel
+      value: 
+      objectReference: {fileID: 7321290641409636149}
     - target: {fileID: 5083973240892407525, guid: 1a055c015a7c42b4f94d47ae9c774ee9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -662,6 +666,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5302107706295205168, guid: 6061e76b8d78ac148b6a19051d09499b, type: 3}
   m_PrefabInstance: {fileID: 8674035075594903683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7321290641409636149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2160091738448861110, guid: 6061e76b8d78ac148b6a19051d09499b, type: 3}
+  m_PrefabInstance: {fileID: 8674035075594903683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914da986e3872e5468c80a7c9b7f2b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9104467564690501360
 PrefabInstance:
   m_ObjectHideFlags: 0

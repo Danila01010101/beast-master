@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61743bb18383d0949858601a34c83917, type: 3}
-  m_Name: Shop Items
+  m_Script: {fileID: 11500000, guid: 4bf6cdbec7ddd214bab18bfebc750d55, type: 3}
+  m_Name: HealingSpell
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: c644ded870651d742a7a5e13d0200088, type: 2}
-  - {fileID: 11400000, guid: bd934a44bde01d445a22c589bfe274ac, type: 2}
+  Icon: {fileID: 21300000, guid: 897b5efeb932ef346a224845a5d329b9, type: 3}
+  Name: HealingSpell
+  Cost: 100
+  SkillType: 0
+  Value: 10
+  Cooldown: 5

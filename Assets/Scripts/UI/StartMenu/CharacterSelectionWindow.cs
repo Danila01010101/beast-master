@@ -11,6 +11,7 @@ namespace BeastMaster
         [SerializeField] private Transform _startPosition;
         [SerializeField] private Player _characterPrefab;
         [SerializeField] private List<CharacterButton> _characterButtons;
+        [SerializeField] private SkillsPanel _skillsPanel;
 
         private CharacterData _characterData;
 
@@ -34,7 +35,7 @@ namespace BeastMaster
         private void SpawnCharacter()
         {
             Player player = Instantiate(_characterPrefab, _startPosition.position, _characterPrefab.transform.rotation);
-            player.Initialize(_characterData);
+            player.Initialize(_characterData, _skillsPanel);
         }
 
         private void OnEnable()

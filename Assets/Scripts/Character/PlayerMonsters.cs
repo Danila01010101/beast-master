@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace BeastMaster
@@ -45,6 +44,16 @@ namespace BeastMaster
             {
                 _monstersData[_currentMonstersAmount++] = data;
             }
+        }
+
+        public void HealMonsters()
+        {
+
+        }
+
+        public void IncreaseMonsterSpeed()
+        {
+
         }
 
         private void OnEnable()

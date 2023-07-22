@@ -72,6 +72,7 @@ namespace BeastMaster
         public void Heal(float healAmount)
         {
             Value += healAmount;
+            HealthChanged?.Invoke();
         }
     }
 }

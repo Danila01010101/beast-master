@@ -6,8 +6,14 @@ namespace BeastMaster
         {
             foreach (Monster monster in _monsters.SpawnedMonsters)
             {
-                monster.Health.Heal(_value);
+                if (monster != null && monster.Health.IsAlive)
+                    monster.Health.Heal(Value);
             }
+        }
+
+        protected override void Upgrade()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
