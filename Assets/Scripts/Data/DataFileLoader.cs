@@ -16,11 +16,9 @@ namespace BeastMaster
                 var savedGame = (GameData)bf.Deserialize(file);
                 file.Close();
 
-                Debug.Log($"Loaded: {Application.persistentDataPath}{fileName}");
                 return savedGame;
             }
 
-            Debug.Log($"Dosn't found: {Application.persistentDataPath}{fileName}");
             return new GameData();
         }
     }
