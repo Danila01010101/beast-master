@@ -53,6 +53,7 @@ namespace BeastMaster
 
         private IEnumerator StartCastingSpell(Skill skill)
         {
+            yield return new WaitForSeconds(0.1f);
             while (true)
             {
                 while (!skill.TryCast())
