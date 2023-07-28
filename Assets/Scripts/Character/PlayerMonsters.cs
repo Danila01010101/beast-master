@@ -34,6 +34,7 @@ namespace BeastMaster
                     _spawnedMonsters.Add(spawnedMonster);
                     spawnedMonster.SetPlayerFriendly(transform);
                     spawnedMonster.gameObject.name = "Friendly" + spawnedMonster.gameObject.name;
+                    spawnedMonster.Health.Death += DetectMonsterDeath;
                 }
             }
         }
@@ -46,14 +47,12 @@ namespace BeastMaster
             }
         }
 
-        public void HealMonsters()
+        public void DetectMonsterDeath()
         {
-
-        }
-
-        public void IncreaseMonsterSpeed()
-        {
-
+            if (--_currentMonstersAmount <= 0)
+            {
+                Player.GameOver?.Invoke();
+            }
         }
 
         private void OnEnable()

@@ -12,6 +12,8 @@ namespace BeastMaster
         private SkillCaster _skillCaster;
         private Animator _animator;
 
+        public static Action GameOver;
+
         public void Initialize(CharacterData data, SkillsPanel skillsPanel)
         {
             _animator = Instantiate(data.CharacterAnimator, transform);

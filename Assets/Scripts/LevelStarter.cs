@@ -54,5 +54,15 @@ namespace BeastMaster
             _counterText.gameObject.SetActive(false);
 			LevelEnded?.Invoke();
         }
+
+        private void OnEnable()
+        {
+			Player.GameOver += StopAllCoroutines;
+        }
+
+        private void OnDisable()
+        {
+            Player.GameOver -= StopAllCoroutines;
+        }
     }
 }
