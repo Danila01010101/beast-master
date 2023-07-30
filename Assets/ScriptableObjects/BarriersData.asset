@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7f79125e8f13f47ad30f0430a27181, type: 3}
-  m_Name: Level1
+  m_Script: {fileID: 11500000, guid: d0845c9f1edb2dc41a1a07f439378e07, type: 3}
+  m_Name: BarriersData
   m_EditorClassIdentifier: 
-  MapSize: 10
-  LevelLenght: 1
-  Parameters:
-  - StartDelay: 2
-    SpawnInterval: 4
-    Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
+  ProtectBarrier: {fileID: 1645048812283512064, guid: 6061911bc4294a54eaea32c90df6101f, type: 3}

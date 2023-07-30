@@ -34,6 +34,10 @@ namespace BeastMaster
 
         protected abstract void Cast();
 
-        protected abstract void Upgrade();
+        protected virtual void Upgrade()
+        {
+            Value *= 1.2f;
+            Cooldown /= 1.5f;
+        }
 	}
 }

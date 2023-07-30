@@ -10,7 +10,7 @@ namespace BeastMaster
         private SkillsPanel _skillsPanel;
         private List<Skill> _skills = new List<Skill>();
 
-        public enum SpellType { Healing, SpeedIncreaser, DamageIncreaser }
+        public enum SpellType { Healing, SpeedIncreaser, DamageIncreaser, DefendBarrier }
 
         public void Initialize(PlayerMonsters monsters, SkillsPanel panel) 
         {
@@ -25,13 +25,19 @@ namespace BeastMaster
                 case SpellType.Healing:
                     var newSkill = new HealingSkill();
                     var newIndicator = _skillsPanel.GetIndicator();
-                    newIndicator.SetIcon(icon);
                     newSkill.Initialize(_monsters, value, cooldown, newIndicator);
                     _skills.Add(newSkill);
                     break;
                 case SpellType.SpeedIncreaser:
                     break;
                 case SpellType.DamageIncreaser:
+                    break;
+                case SpellType.DefendBarrier:
+                    var newBarrierSkill = new BarrierSkill();
+                    var newBarrierIndicator = _skillsPanel.GetIndicator();
+                    newBarrierIndicator.SetIcon(icon);
+                    newBarrierSkill.Initialize(_monsters, value, cooldown, newBarrierIndicator);
+                    _skills.Add(newBarrierSkill);
                     break;
             }
         }

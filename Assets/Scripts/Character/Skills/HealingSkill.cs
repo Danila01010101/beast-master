@@ -10,11 +10,5 @@ namespace BeastMaster
                     monster.Health.Heal(Value);
             }
         }
-
-        protected override void Upgrade()
-        {
-            Value *= 1.2f;
-            Cooldown /= 1.5f;
-        }
     }
 }
