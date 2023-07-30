@@ -8,8 +8,8 @@ namespace BeastMaster
         private SkillIndicator _skillIndicator;
         private float _lastTimeCasted = -Mathf.Infinity;
 
-        public float Cooldown { get; private set; }
-        public float Value { get; private set; }
+        public float Cooldown { get; protected set; }
+        public float Value { get; protected set; }
 
         public void Initialize(PlayerMonsters monsters, int value, int cooldown, SkillIndicator indicator = null)
         {

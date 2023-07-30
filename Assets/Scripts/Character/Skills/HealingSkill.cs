@@ -13,7 +13,8 @@ namespace BeastMaster
 
         protected override void Upgrade()
         {
-            throw new System.NotImplementedException();
+            Value *= 1.2f;
+            Cooldown /= 1.5f;
         }
     }
 }
