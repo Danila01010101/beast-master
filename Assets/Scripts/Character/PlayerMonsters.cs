@@ -37,6 +37,7 @@ namespace BeastMaster
                     spawnedMonster.Health.Death += DetectMonsterDeath;
                 }
             }
+            _currentMonstersAmount = _spawnedMonsters.Count;
         }
 
         public void AddMonster(MonsterData data)
