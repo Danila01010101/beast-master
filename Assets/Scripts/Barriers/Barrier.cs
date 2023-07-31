@@ -14,11 +14,6 @@ namespace BeastMaster
         protected bool _isActivated { get; private set; } = false;
         protected int _damage { get; private set; }
 
-        private void Awake()
-        {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
         public void SetIgnoreLayer(string layer)
         {
             gameObject.layer = LayerMask.NameToLayer(layer); 
