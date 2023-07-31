@@ -218,7 +218,7 @@ MonoBehaviour:
   _barrierTransforms:
   - {fileID: 1645048811652159288}
   - {fileID: 1645048811768013118}
-  _destroyParticles: {fileID: 0}
+  _destroyParticles: {fileID: 4170717844109363962, guid: 8b96b185744074046927d588e82a8da8, type: 3}
 --- !u!1 &1645048812882178696
 GameObject:
   m_ObjectHideFlags: 0

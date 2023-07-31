@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BarriersData
   m_EditorClassIdentifier: 
   ProtectBarrier: {fileID: 1645048812283512064, guid: 6061911bc4294a54eaea32c90df6101f, type: 3}
+  ElectricityBarrier: {fileID: 60695165809254507, guid: 454c17090ea53c74a8b12d75e9522e0b, type: 3}

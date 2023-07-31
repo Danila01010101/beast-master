@@ -10,7 +10,7 @@ namespace BeastMaster
         private SkillsPanel _skillsPanel;
         private List<Skill> _skills = new List<Skill>();
 
-        public enum SpellType { Healing, SpeedIncreaser, DamageIncreaser, DefendBarrier }
+        public enum SpellType { Healing, SpeedIncreaser, DamageIncreaser, DefendBarrier, ElectricBarrier }
 
         public void Initialize(PlayerMonsters monsters, SkillsPanel panel) 
         {
@@ -33,12 +33,23 @@ namespace BeastMaster
                 case SpellType.DamageIncreaser:
                     break;
                 case SpellType.DefendBarrier:
-                    var newBarrierSkill = new BarrierSkill();
-                    var newBarrierIndicator = _skillsPanel.GetIndicator();
-                    newBarrierIndicator.SetIcon(icon);
-                    newBarrierSkill.Initialize(_monsters, value, cooldown, newBarrierIndicator);
-                    _skills.Add(newBarrierSkill);
+                    var shieldBarrierSkill = new BarrierSkill();
+                    shieldBarrierSkill.SetBarrierType(BarrierCreator.BarrierType.Defend);
+                    var shieldBarrierIndicator = _skillsPanel.GetIndicator();
+                    shieldBarrierIndicator.SetIcon(icon);
+                    shieldBarrierSkill.Initialize(_monsters, value, cooldown, shieldBarrierIndicator);
+                    _skills.Add(shieldBarrierSkill);
                     break;
+                case SpellType.ElectricBarrier:
+                    var electricityBarrierSkill = new BarrierSkill();
+                    electricityBarrierSkill.SetBarrierType(BarrierCreator.BarrierType.Electricity);
+                    var electricityBarrierIndicator = _skillsPanel.GetIndicator();
+                    electricityBarrierIndicator.SetIcon(icon);
+                    electricityBarrierSkill.Initialize(_monsters, value, cooldown, electricityBarrierIndicator);
+                    _skills.Add(electricityBarrierSkill);
+                    break;
+                default:
+                    throw new System.NotImplementedException();
             }
         }
 

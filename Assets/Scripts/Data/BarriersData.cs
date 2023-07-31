@@ -6,6 +6,6 @@ namespace BeastMaster
     public class BarriersData : ScriptableObject
     {
         public ProtectBarrier ProtectBarrier;
-        //public ElectrisityBarrier;
+        public ElectricityBarrier ElectricityBarrier;
     }
 }

@@ -11,9 +11,28 @@ namespace BeastMaster
         [SerializeField] private ParticleSystem _destroyParticles;
 
         private float _speedMultiplier = 0.5f;
+        protected bool _isActivated { get; private set; } = false;
+        protected int _damage { get; private set; }
+        private Rigidbody2D _rigidbody2D;
 
-        public void Initialize(Transform parent, float lifeTime)
+        private void Awake()
         {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        public void SetIgnoreLayer(string layer)
+        {
+            gameObject.layer = LayerMask.NameToLayer(layer); 
+            foreach (Transform child in _barrierTransforms)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer(layer);
+            }
+            _isActivated = true;
+        }
+
+        public void Initialize(Transform parent, float lifeTime, int damage)
+        {
+            _damage = damage;
             transform.SetParent(parent);
             transform.localPosition = Vector3.zero;
             if (_destroyParticles != null)

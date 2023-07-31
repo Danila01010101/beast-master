@@ -14,7 +14,7 @@ namespace BeastMaster
         {
             foreach (Monster monster in _monsters.SpawnedMonsters)
             {
-                BarrierCreator.Instance.AddBarrier(_type, monster.transform, Cooldown * CooldownLifetime);
+                BarrierCreator.Instance.AddBarrier(_type, monster.transform, Cooldown * CooldownLifetime, (int)Value);
             }
         }
 

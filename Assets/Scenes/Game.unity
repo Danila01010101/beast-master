@@ -729,6 +729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barriers: {fileID: 11400000, guid: 4e6479fc217cca84d93a3eac2faaf927, type: 2}
+  _friendlyLayerMask: FriendlyMonster
+  _enemiesLayerMask: EnemyMonster
 --- !u!224 &1315874863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3599645128282683392, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
