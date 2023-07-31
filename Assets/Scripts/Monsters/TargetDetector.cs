@@ -36,6 +36,11 @@ namespace BeastMaster
             {
                 CheckTarget();
             }
+            else
+            {
+                if (_attackTarget == null)
+                    ResetTarget();
+            }
         }
 
         private void CheckTarget()
