@@ -13,7 +13,6 @@ namespace BeastMaster
         private float _speedMultiplier = 0.5f;
         protected bool _isActivated { get; private set; } = false;
         protected int _damage { get; private set; }
-        private Rigidbody2D _rigidbody2D;
 
         private void Awake()
         {
