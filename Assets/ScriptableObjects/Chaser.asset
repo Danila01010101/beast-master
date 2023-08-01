@@ -16,5 +16,6 @@ MonoBehaviour:
   StartHealth: 100
   Speed: 250
   Damage: 15
+  Revard: 25
   DeathSound: {fileID: 8300000, guid: ea0b2550ff669ae4bafc03251023f0f3, type: 3}
   HitSound: {fileID: 8300000, guid: 116c8823fb5c3e4449880d6e294434ef, type: 3}

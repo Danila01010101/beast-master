@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 897b5efeb932ef346a224845a5d329b9, type: 3}
   Name: HealingSpell
-  Cost: 100
+  Cost: 25
   SkillType: 0
   Value: 10
   Cooldown: 5

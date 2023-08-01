@@ -12,7 +12,7 @@ namespace BeastMaster
 
         public static Action<SkillCaster.SpellType, int, int, Sprite> SpellBought;
 
-        public override void Buy()
+        protected override void Buy()
         {
             SpellBought?.Invoke(SkillType, Value, Cooldown, Icon);
         }

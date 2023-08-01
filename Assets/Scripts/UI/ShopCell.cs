@@ -20,7 +20,7 @@ namespace BeastMaster
         {
             _icon.sprite = item.Icon;
             _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(item.Buy);
+            _button.onClick.AddListener(item.TryBuy);
         }
     }
 }

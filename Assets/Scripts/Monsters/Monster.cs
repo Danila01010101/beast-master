@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace BeastMaster
@@ -31,6 +32,8 @@ namespace BeastMaster
         public Health Health { get { return _health; } }
         public Damager Damager { get { return _damager; } }
         public TargetDetector TargetDetector { get { return _targetDetector; } }
+
+        public static Action<int> AddPoints;
 
         private void Awake()
         {
@@ -81,9 +84,18 @@ namespace BeastMaster
             Destroy(gameObject);
         }
 
+        public void AddRevard()
+        {
+            if (!_isFriendlyToPlayer)
+            {
+                AddPoints?.Invoke(_data.Revard);
+            }
+        }
+
         private void OnEnable()
         {
             _health.Death += Remove;
+            _health.Death += AddRevard;
             _health.Death += PlayDeathSound;
             _health.HealthChanged += PlayHitSound;
         }
@@ -91,6 +103,7 @@ namespace BeastMaster
         private void OnDisable()
         {
             _health.Death -= Remove;
+            _health.Death -= AddRevard;
             _health.Death -= PlayDeathSound;
             _health.HealthChanged -= PlayHitSound;
         }

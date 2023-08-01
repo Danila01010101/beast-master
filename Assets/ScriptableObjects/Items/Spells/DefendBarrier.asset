@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: f24d401f9aa708547971d39b6e276f31, type: 3}
   Name: Barrier
-  Cost: 0
+  Cost: 25
   SkillType: 3
   Value: 1
   Cooldown: 15

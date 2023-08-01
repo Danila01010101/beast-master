@@ -10,7 +10,7 @@ namespace BeastMaster
 
         public static Action<MonsterData> MonsterBought;
 
-        public override void Buy()
+        protected override void Buy()
         {
             MonsterBought?.Invoke(MonsterData);
         }

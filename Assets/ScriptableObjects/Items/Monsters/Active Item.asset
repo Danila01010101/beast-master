@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 619223149, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
   Name: Chaser
-  Cost: 100
+  Cost: 50
   MonsterData: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
