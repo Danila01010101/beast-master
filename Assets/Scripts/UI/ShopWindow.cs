@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,8 @@ namespace BeastMaster
         [Header("Items")]
         [SerializeField] private ItemsData _items;
 
+        public Action ShopOppened;
+
         public override void Initialize()
         {
             _startButton.onClick.AddListener(delegate { UIWindowManager.Show<GameUI>(); });
@@ -24,6 +27,7 @@ namespace BeastMaster
         {
             base.Show();
             UpdateCells();
+            ShopOppened?.Invoke();
         }
 
         public void UpdateCells()
