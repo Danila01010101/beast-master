@@ -30,7 +30,7 @@ namespace BeastMaster
 					delegate
 					{
 						_upgrader.Updrade(upgradeType, upgrade.Value);
-						UIWindowManager.Show<ShopWindow>();
+						UIWindowManager.Show<ShopWindow>(false);
                     },
 					upgrade.Sprite);
 			}

@@ -50,7 +50,7 @@ namespace BeastMaster
 
         public override void Initialize()
         {
-            _startButton.onClick.AddListener(delegate { UIWindowManager.Show<GameUI>(); });
+            _startButton.onClick.AddListener(delegate { UIWindowManager.Show<GameUI>(false); });
             _backButton.onClick.AddListener(delegate { UIWindowManager.ShowLast(); });
         }
     }

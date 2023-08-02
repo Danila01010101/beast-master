@@ -6,17 +6,17 @@ namespace BeastMaster
     {
         private void ShowEndScreen()
         {
-            UIWindowManager.Show<EndGameScreen>();
+            UIWindowManager.Show<EndGameScreen>(false);
         }
 
         private void HideOnStart()
         {
-            UIWindowManager.Show<GameUI>();
+            UIWindowManager.Show<GameUI>(false);
         }
 
         private void OpenUpgradeWindow()
         {
-            UIWindowManager.Show<ShopWindow>(true);
+            UIWindowManager.Show<ShopWindow>(false);
             UIWindowManager.Show<CharacterUpgradeWindow>(false);
         }
 
