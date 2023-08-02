@@ -18,10 +18,6 @@ namespace BeastMaster
         {
             _startButton.onClick.AddListener(delegate { UIWindowManager.Show<GameUI>(); });
             _backButton.onClick.AddListener(delegate { UIWindowManager.ShowLast(); });
-            foreach (ShopCell cell in _shopCells)
-            {
-                cell.InitializeData(_items);
-            }
         }
 
         override public void Show()
