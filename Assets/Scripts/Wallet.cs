@@ -1,14 +1,29 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using System;
 using UnityEngine;
 
 namespace BeastMaster
 {
     public class Wallet : MonoBehaviour
     {
-        public int MoneyAmount { get; private set; }
+        private int _moneyAmount;
+
+        public int MoneyAmount 
+        {
+            get
+            {
+                return _moneyAmount;
+            }
+            private set 
+            {
+                _moneyAmount = value;
+                MoneyAmountChanged?.Invoke(); 
+            } 
+        }
 
         public static Wallet Instance { get; private set; }
+
+        public Action MoneyAmountChanged;
 
         private void AddMoney(int value) => MoneyAmount += value;
 
