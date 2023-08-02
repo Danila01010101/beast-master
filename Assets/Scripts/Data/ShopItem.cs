@@ -10,12 +10,14 @@ namespace BeastMaster
 
         protected abstract void Buy();
 
-        public void TryBuy()
+        public bool TryBuy()
         {
             if (Wallet.Instance.TryBuy(Cost))
             {
                 Buy();
+                return true;
             }
+            return false;
         }
     }
 }
