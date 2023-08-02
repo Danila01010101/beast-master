@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace BeastMaster
@@ -35,6 +35,12 @@ namespace BeastMaster
         private void OnDisable()
         {
             Monster.AddPoints -= AddMoney;
+        }
+
+        [Button("AddMoney")]
+        private void MoneyButton()
+        {
+            AddMoney(10000);
         }
     }
 }
