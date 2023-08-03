@@ -28,7 +28,8 @@ namespace BeastMaster
 		protected Movement _movement;
         protected TargetDetector _targetDetector;
 
-
+        public bool IsPlayerFriendly => _isFriendlyToPlayer;
+        public bool IsProtected { get; set; }
         public Health Health { get { return _health; } }
         public Damager Damager { get { return _damager; } }
         public TargetDetector TargetDetector { get { return _targetDetector; } }
@@ -51,8 +52,10 @@ namespace BeastMaster
             _damager.SetDamageLayer(_playerLayerMask);
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
+            if (IsProtected)
+                damage /= 3;
             _health.TakeDamage(damage);
         }
 

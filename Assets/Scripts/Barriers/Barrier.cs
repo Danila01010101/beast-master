@@ -12,7 +12,7 @@ namespace BeastMaster
 
         private float _speedMultiplier = 0.5f;
         protected bool _isActivated { get; private set; } = false;
-        protected int _damage { get; private set; }
+        protected float _damage { get; private set; }
 
         public void SetIgnoreLayer(string layer)
         {
