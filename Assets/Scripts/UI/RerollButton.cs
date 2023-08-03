@@ -37,7 +37,7 @@ namespace BeastMaster
 
         private void UpdateRerollCost()
         {
-            _upgradeCostText.text = "- " + _rerollCostIncreasement;
+            _upgradeCostText.text = "- " + _currentRerollCost;
         }
 
         private void OnEnable()
