@@ -53,7 +53,7 @@ namespace BeastMaster
 
         public void UpgradeAttackSpeed(int increasePercent)
         {
-            _attackSpeed += increasePercent / 100;
+            _attackSpeed *= 1 + increasePercent / 100;
         }
     }
 }

@@ -15,48 +15,48 @@ MonoBehaviour:
   HealthUpgrades:
     Common:
       Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
-      Value: 2
+      Value: 25
     Rare:
       Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
-      Value: 4
+      Value: 50
     VeryRare:
       Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
-      Value: 6
+      Value: 60
     Epic:
       Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
-      Value: 0
+      Value: 75
     Legendary:
       Sprite: {fileID: 21300000, guid: 80db3d920cce83f4c85f563b7d8c473c, type: 3}
-      Value: 15
+      Value: 90
   DamageMultiplierUpgrades:
     Common:
       Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
       Value: 3
     Rare:
       Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
-      Value: 8
+      Value: 5
     VeryRare:
       Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
-      Value: 10
+      Value: 8
     Epic:
       Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
-      Value: 0
+      Value: 10
     Legendary:
       Sprite: {fileID: 21300000, guid: 5ce821e12b65c37418cd8b9f0dc83325, type: 3}
-      Value: 20
+      Value: 15
   AttackSpeedUpgrades:
     Common:
       Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
-      Value: 2
+      Value: 3
     Rare:
       Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
       Value: 5
     VeryRare:
       Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
-      Value: 10
+      Value: 7
     Epic:
       Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
-      Value: 0
+      Value: 10
     Legendary:
       Sprite: {fileID: 21300000, guid: fef3996238fab234bb518213e2996286, type: 3}
-      Value: 20
+      Value: 15
