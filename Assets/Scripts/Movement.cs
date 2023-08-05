@@ -17,14 +17,14 @@ namespace BeastMaster
             _rigidbody.gravityScale = 0;
         }
 
-        public void Move(Vector2 moveDirection)
+        public void Move(Vector2 moveDirection, float speedMultiplier = 1)
         {
             if (moveDirection.x != 0 && moveDirection.y != 0)
             {
                 moveDirection *= _moveLimiter;
             }
 
-            _rigidbody.velocity = moveDirection.normalized * _speed * Time.fixedDeltaTime;
+            _rigidbody.velocity = moveDirection.normalized * _speed * speedMultiplier * Time.fixedDeltaTime;
         }
 
         public void Stop()

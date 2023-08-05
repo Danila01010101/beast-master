@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   MapSize: 10
-  LevelLenght: 1
+  LevelLenght: 10
   Parameters:
-  - StartDelay: 2
+  - StartDelay: 10
     SpawnInterval: 4
     Monster: {fileID: 11400000, guid: 4a7e7cfbd7df7b04d90c8d8e459e7e51, type: 2}
+  - StartDelay: 0.5
+    SpawnInterval: 1.5
+    Monster: {fileID: 11400000, guid: 6e5ad291373a99943946502bfbbdbb50, type: 2}

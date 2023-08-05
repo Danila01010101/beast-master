@@ -11,7 +11,7 @@ namespace BeastMaster
     public class Monster : MonoBehaviour, IDamagable
 	{
 		[SerializeField] private MonsterData _data;
-        [SerializeField] private LayerMask _playerLayerMask;
+        [SerializeField] private LayerMask _friendlyLayerMask;
         [SerializeField] private LayerMask _enemyLayerMask;
         [SerializeField] private Vector3 _healthBarOffset;
 
@@ -48,8 +48,8 @@ namespace BeastMaster
             _movement.Initialize(_data);
             _damager.Initialize((int)_data.Damage, _capsuleCollider2D.size, _capsuleCollider2D.direction, _capsuleCollider2D.offset);
             _audioPlayer.Initialize(_data.DeathSound, _data.HitSound);
-            _targetDetector.SetTargetLayer(_playerLayerMask, transform, _enemyMonsterLayerName);
-            _damager.SetDamageLayer(_playerLayerMask);
+            _targetDetector.SetTargetLayer(_friendlyLayerMask, transform, _enemyMonsterLayerName);
+            _damager.SetDamageLayer(_friendlyLayerMask);
         }
 
         public void TakeDamage(float damage)
