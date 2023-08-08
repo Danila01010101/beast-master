@@ -1,10 +1,11 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace BeastMaster
 {
     public class Damager : MonoBehaviour
 	{
+        [SerializeField] private float _damageInterval = 0.2f;
+
         private LayerMask _damageLayer;
         private Vector2 _size;
         private Vector3 _offset;
@@ -13,8 +14,6 @@ namespace BeastMaster
         private float _attackSpeed = 1;
         private float _lastTimeDamaged;
         private bool _canDamage => _lastTimeDamaged + (_damageInterval * _attackSpeed) < Time.time;
-
-        private const float _damageInterval = 0.2f;
 
         public void Initialize(int damage, Vector2 size, CapsuleDirection2D capsuleDirection, Vector3 offset)
         {

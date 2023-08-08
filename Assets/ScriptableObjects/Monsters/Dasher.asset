@@ -15,7 +15,7 @@ MonoBehaviour:
   Prefab: {fileID: 4262112431385625960, guid: 6ad2fbec8bd13844f82ba5bb8e7fff6f, type: 3}
   StartHealth: 200
   Speed: 215
-  Damage: 23
+  Damage: 20
   Revard: 55
   DeathSound: {fileID: 8300000, guid: ea0b2550ff669ae4bafc03251023f0f3, type: 3}
   HitSound: {fileID: 8300000, guid: 116c8823fb5c3e4449880d6e294434ef, type: 3}
