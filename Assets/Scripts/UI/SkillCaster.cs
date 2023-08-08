@@ -25,6 +25,7 @@ namespace BeastMaster
                 case SpellType.Healing:
                     var newSkill = new HealingSkill();
                     var newIndicator = _skillsPanel.GetIndicator();
+                    newIndicator.SetIcon(icon);
                     newSkill.Initialize(_monsters, value, cooldown, newIndicator);
                     _skills.Add(newSkill);
                     break;
@@ -84,6 +85,7 @@ namespace BeastMaster
             SpellItem.SpellBought += AddSpell;
             LevelStarter.LevelStarted += StartCastingSpells;
             LevelStarter.LevelEnded += StopCastingSpells;
+            Player.GameOver += StopCastingSpells;
         }
 
         private void OnDisable()
@@ -91,6 +93,7 @@ namespace BeastMaster
             SpellItem.SpellBought -= AddSpell;
             LevelStarter.LevelStarted -= StartCastingSpells;
             LevelStarter.LevelEnded -= StopCastingSpells;
+            Player.GameOver -= StopCastingSpells;
         }
     }
 }
