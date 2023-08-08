@@ -12,6 +12,7 @@ namespace BeastMaster
         [SerializeField] private Player _characterPrefab;
         [SerializeField] private List<CharacterButton> _characterButtons;
         [SerializeField] private SkillsPanel _skillsPanel;
+        [SerializeField] private Cinemachine.CinemachineVirtualCamera _camera;
 
         private CharacterData _characterData;
 
@@ -36,6 +37,7 @@ namespace BeastMaster
         {
             Player player = Instantiate(_characterPrefab, _startPosition.position, _characterPrefab.transform.rotation);
             player.Initialize(_characterData, _skillsPanel);
+            _camera.Follow = player.transform;
         }
 
         private void OnEnable()
