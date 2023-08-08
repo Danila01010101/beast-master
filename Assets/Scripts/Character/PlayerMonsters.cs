@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace BeastMaster
@@ -20,27 +22,6 @@ namespace BeastMaster
             AddMonster(data.StartMonster);
         }
 
-        public void RespawnMonsters()
-        {
-            foreach (Monster monster in _spawnedMonsters)
-            {
-                monster.Remove();
-            }
-            _spawnedMonsters = new List<Monster>();
-            foreach (MonsterData data in _monstersData)
-            {
-                if (data != null)
-                {
-                    var spawnedMonster = Instantiate(data.Prefab);
-                    _spawnedMonsters.Add(spawnedMonster);
-                    spawnedMonster.SetPlayerFriendly(transform);
-                    spawnedMonster.gameObject.name = "Friendly" + spawnedMonster.gameObject.name;
-                    spawnedMonster.Health.Death += DetectMonsterDeath;
-                }
-            }
-            _currentMonstersAmount = _spawnedMonsters.Count;
-        }
-
         public void AddMonster(MonsterData data)
         {
             if (_currentMonstersAmount < _maxMonstersAmount)
@@ -55,9 +36,52 @@ namespace BeastMaster
             {
                 Player.GameOver?.Invoke();
             }
+            for (int i = 0; i < _spawnedMonsters.Count; i++)
+            {
+                if (!_spawnedMonsters[i].Health.IsAlive)
+                {
+                    _spawnedMonsters.Remove(_spawnedMonsters[i]);
+                    return;
+                }
+            }
         }
 
         private bool CanAddMonster() => _currentMonstersAmount < _maxMonstersAmount;
+
+        public void RespawnMonsters() => StartCoroutine(MonstersRespawning());
+
+        private IEnumerator MonstersRespawning()
+        {
+            yield return null;
+            var monstersToDelete = new List<Monster>();
+            for (int i = 0; i < _spawnedMonsters.Count; i++)
+            {
+                monstersToDelete.Add(_spawnedMonsters[i]);
+            }
+            foreach (var monster in monstersToDelete)
+            {
+                monster.Remove();
+            }
+            foreach (Monster monster in _spawnedMonsters)
+            {
+                if (monster.Health.IsAlive)
+                    monster.Remove();
+            }
+            yield return null;
+            _spawnedMonsters = new List<Monster>();
+            foreach (MonsterData data in _monstersData)
+            {
+                if (data != null)
+                {
+                    var spawnedMonster = Instantiate(data.Prefab);
+                    _spawnedMonsters.Add(spawnedMonster);
+                    spawnedMonster.SetPlayerFriendly(transform);
+                    spawnedMonster.gameObject.name = "Friendly" + spawnedMonster.gameObject.name;
+                    spawnedMonster.Health.Death += DetectMonsterDeath;
+                }
+            }
+            _currentMonstersAmount = _spawnedMonsters.Count;
+        }
 
         private void OnEnable()
         {
