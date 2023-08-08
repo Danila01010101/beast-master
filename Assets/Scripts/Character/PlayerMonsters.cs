@@ -14,6 +14,7 @@ namespace BeastMaster
 
         public void Initialize(CharacterData data)
         {
+            MonsterItem.CheckCanBuy += CanAddMonster;
             _monstersData = new MonsterData[data.MaxMonstersAmount];
             _maxMonstersAmount = data.MaxMonstersAmount;
             AddMonster(data.StartMonster);
@@ -56,6 +57,8 @@ namespace BeastMaster
             }
         }
 
+        private bool CanAddMonster() => _currentMonstersAmount < _maxMonstersAmount;
+
         private void OnEnable()
         {
             MonsterItem.MonsterBought += AddMonster;
@@ -64,6 +67,11 @@ namespace BeastMaster
         private void OnDisable()
         {
             MonsterItem.MonsterBought -= AddMonster;
+        }
+
+        private void OnDestroy()
+        {
+            MonsterItem.CheckCanBuy -= CanAddMonster;
         }
     }
 }
