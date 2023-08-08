@@ -61,7 +61,7 @@ MonoBehaviour:
     m_Bits: 256
   _healthBarOffset: {x: 0, y: 1.6, z: 0}
   _playerFollowRadius: 2
-  _dashRange: 3.5
+  _dashRange: 20
   _dashReload: 1
   _dashChargeTime: 0.3
   _dashDuration: 0.3
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defb1fc10b919d24ab0eed0d7d802bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectRadius: 5
+  _detectRadius: 25
 --- !u!114 &2425978894902227568
 MonoBehaviour:
   m_ObjectHideFlags: 0

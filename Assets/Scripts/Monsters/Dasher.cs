@@ -12,16 +12,17 @@ namespace BeastMaster
         [SerializeField] private Animator _animator;
 
         private string _dashAnimationName = "Dash";
-        private float _lastTimeDashed = 0f;
+        private float _lastTimeDashed = -100f;
         private bool _isDashing = false;
 
         public void FixedUpdate()
         {
-            if (_targetDetector.Target != null && !_isDashing)
+            bool isTimeToDash = _lastTimeDashed +_dashReload < Time.time;
+            if (_targetDetector.Target != null && !_isDashing && isTimeToDash)
             {
                 Vector2 direction = _targetDetector.Target.transform.position - transform.position;
                 _movement.Move(direction);
-                if (_lastTimeDashed + _dashReload < Time.time && Vector2.Distance(_targetDetector.Target.position, transform.position) < _dashRange)
+                if (isTimeToDash && Vector2.Distance(_targetDetector.Target.position, transform.position) < _dashRange)
                 {
                     _movement.Stop();
                     StartCoroutine(StartDashing());
@@ -34,6 +35,7 @@ namespace BeastMaster
             _animator.SetTrigger(_dashAnimationName);
             yield return _dashChargeTime;
             Vector2 direction = _targetDetector.Target.transform.position - transform.position;
+            direction *= 1.3f;
             var endDashTime = Time.time + _dashDuration;
             while (endDashTime > Time.time)
             {
