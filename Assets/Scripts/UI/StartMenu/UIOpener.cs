@@ -9,6 +9,11 @@ namespace BeastMaster
             UIWindowManager.Show<EndGameScreen>(false);
         }
 
+        private void ShowWinScreen()
+        {
+            UIWindowManager.Show<WinGameScreen>(false);
+        }
+
         private void HideOnStart()
         {
             UIWindowManager.Show<GameUI>(false);

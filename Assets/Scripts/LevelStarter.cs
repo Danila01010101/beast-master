@@ -13,17 +13,18 @@ namespace BeastMaster
 		[SerializeField] private List<LevelData> _levelDatas;
 		[SerializeField] private TextMeshProUGUI _counterText;
 
-		private Queue<LevelData> _levelsStack = new Queue<LevelData>();
+		private Queue<LevelData> _levelsQueue = new Queue<LevelData>();
 
 		public static Action LevelEnded;
 		public static Action LevelStarted;
+		public static Action GameFinished;
 		public static Action<LevelData> LevelDataSelected;
 
         private void Awake()
         {
 			foreach (LevelData levelData in _levelDatas)
 			{
-				_levelsStack.Enqueue(levelData);
+				_levelsQueue.Enqueue(levelData);
 			}
 			foreach (Button button in _startButtons)
             {
@@ -33,7 +34,7 @@ namespace BeastMaster
 
         public void StartLevel()
 		{
-			LevelData currentLevel = _levelsStack.Dequeue();
+			LevelData currentLevel = _levelsQueue.Dequeue();
 			LevelStarted?.Invoke();
             LevelDataSelected?.Invoke(currentLevel);
 			StartCoroutine(LevelEndCounting(currentLevel.LevelLenght));
@@ -52,7 +53,14 @@ namespace BeastMaster
 				yield return null;
             }
             _counterText.gameObject.SetActive(false);
-			LevelEnded?.Invoke();
+			if (_levelsQueue.Count != 0)
+            {
+                LevelEnded?.Invoke();
+            }
+			else
+			{
+				GameFinished?.Invoke();
+			}
         }
 
         private void OnEnable()
