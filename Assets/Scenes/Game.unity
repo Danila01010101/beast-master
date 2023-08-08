@@ -761,6 +761,7 @@ MonoBehaviour:
   - {fileID: 637490981}
   _levelDatas:
   - {fileID: 11400000, guid: 7b29f449bf8aed74496722a1e319362a, type: 2}
+  - {fileID: 11400000, guid: 0f2589afcb72cea4c95b33ecc71de89d, type: 2}
   _counterText: {fileID: 28443053}
 --- !u!1 &1073450426
 GameObject:
