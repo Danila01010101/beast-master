@@ -761,7 +761,6 @@ MonoBehaviour:
   - {fileID: 637490981}
   _levelDatas:
   - {fileID: 11400000, guid: 7b29f449bf8aed74496722a1e319362a, type: 2}
-  - {fileID: 11400000, guid: 0f2589afcb72cea4c95b33ecc71de89d, type: 2}
   _counterText: {fileID: 28443053}
 --- !u!1 &1073450426
 GameObject:
@@ -972,6 +971,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1732833523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6108519442096823764, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
+  m_PrefabInstance: {fileID: 3599645129455931439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1828293006
 GameObject:
   m_ObjectHideFlags: 3
@@ -1266,6 +1270,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 316375990}
+    - target: {fileID: 4235030073971508684, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235030073971508684, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235030073971508684, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1732833523}
+    - target: {fileID: 4235030073971508684, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5181974349775063241, guid: 470142839b9c9954e8cf6c4b395806f7, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1

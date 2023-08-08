@@ -53,13 +53,10 @@ namespace BeastMaster
 				yield return null;
             }
             _counterText.gameObject.SetActive(false);
-			if (_levelsQueue.Count != 0)
+            LevelEnded?.Invoke();
+            if (_levelsQueue.Count == 0)
             {
-                LevelEnded?.Invoke();
-            }
-			else
-			{
-				GameFinished?.Invoke();
+                GameFinished?.Invoke();
 			}
         }
 

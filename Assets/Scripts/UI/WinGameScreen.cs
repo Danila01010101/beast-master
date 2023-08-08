@@ -1,10 +1,7 @@
 namespace BeastMaster
 {
-    public class WinGameScreen : UIWindow
+    public class WinGameScreen : AfterGameScreen
     {
-        public override void Initialize()
-        {
 
-        }
     }
 }

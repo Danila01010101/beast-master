@@ -30,6 +30,7 @@ namespace BeastMaster
             Player.GameOver += ShowEndScreen;
             LevelStarter.LevelStarted += HideOnStart;
             LevelStarter.LevelEnded += OpenUpgradeWindow;
+            LevelStarter.GameFinished += ShowWinScreen;
         }
 
         private void OnDisable()
@@ -37,6 +38,7 @@ namespace BeastMaster
             Player.GameOver -= ShowEndScreen;
             LevelStarter.LevelStarted -= HideOnStart;
             LevelStarter.LevelEnded -= OpenUpgradeWindow;
+            LevelStarter.GameFinished -= ShowWinScreen;
         }
     }
 }
