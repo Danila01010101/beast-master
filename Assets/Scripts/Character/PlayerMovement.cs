@@ -5,6 +5,10 @@ namespace BeastMaster
     public class PlayerMovement : Movement
     {
         private Vector2 _moveDirection;
+        private bool _canMove = false;
+
+        private void EnableMovement() => _canMove = true;
+        private void DisableMovement() => _canMove = false;
 
         private void Update()
         {
@@ -22,6 +26,18 @@ namespace BeastMaster
             float yDirection = Input.GetAxisRaw("Vertical");
 
             _moveDirection = new Vector2(xDirection, yDirection);
+        }
+
+        private void OnEnable()
+        {
+            LevelStarter.LevelStarted += EnableMovement;
+            LevelStarter.LevelEnded += DisableMovement;
+        }
+
+        private void OnDisable()
+        {
+            LevelStarter.LevelStarted -= EnableMovement;
+            LevelStarter.LevelEnded -= DisableMovement;
         }
     }
 }

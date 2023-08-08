@@ -27,6 +27,7 @@ namespace BeastMaster
 
         public void TrySpawnMonsters()
         {
+            transform.position = Vector3.zero;
             if (_monsters != null)
             {
                 _monsters.RespawnMonsters();
