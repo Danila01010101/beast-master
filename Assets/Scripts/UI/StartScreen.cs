@@ -10,8 +10,8 @@ namespace BeastMaster
 
         public override void Initialize()
         {
-            _chooseCharacterButton.onClick.AddListener(delegate { UIWindowManager.Show<CharacterSelectionWindow>(); });
-            _settingsButton.onClick.AddListener(delegate { UIWindowManager.Show<SettingsWindow>(false); });
+            _chooseCharacterButton.onClick.AddListener(delegate { UIWindowManager.Show<CharacterSelectionWindow>(true); });
+            _settingsButton.onClick.AddListener(delegate { UIWindowManager.Show<SettingsWindow>(true); });
         }
     }
 }
